@@ -1,9 +1,12 @@
-<<<<<<< HEAD
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💇‍♂️ Salon Project
 
-## Getting Started
+This is a project built with [Next.js](https://nextjs.org), bootstrapped using [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app). The goal is to manage features of a party or beauty salon.
 
-First, run the development server:
+---
+
+## 🚀 Getting Started
+
+To run the project locally:
 
 ```bash
 npm run dev
@@ -15,26 +18,54 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ✏️ Project Structure
 
-## Learn More
+The main page file is located at:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+app/page.tsx
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Changes are automatically applied as you edit.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🖋️ Typography
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) with the [Geist](https://vercel.com/font) font by Vercel for performance optimization.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-=======
-# projetosalao
->>>>>>> b8b5792b8f898ecb5b086d2a826c226aebc99f63
+---
+
+## 📦 Technologies Used
+
+- [Next.js](https://nextjs.org)
+- [React](https://reactjs.org)
+- [TypeScript](https://www.typescriptlang.org)
+- [Tailwind CSS](https://tailwindcss.com) *(if applicable)*
+
+---
+
+## 📚 Learn More
+
+- 📖 [Next.js Documentation](https://nextjs.org/docs)
+- 🧠 [Interactive Tutorial](https://nextjs.org/learn)
+- 👥 [Official GitHub Repo](https://github.com/vercel/next.js)
+
+---
+
+## ☁️ Deploy with Vercel
+
+The easiest way to deploy your application is by using the Vercel platform:
+
+- 🔗 [Deploy on Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme)
+- 📘 [Deployment Docs](https://nextjs.org/docs/app/building-your-application/deploying)
+
+---
+
+## 👨‍💻 Author
+
+Made with 💜 by [Jean Max](https://github.com/JeanMaxSKrebs)
