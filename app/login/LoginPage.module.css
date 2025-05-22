@@ -1,0 +1,128 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background);
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.containerLogo {
+  background-color: var(--primaryShadow);
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px var(--primaryDark);
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+  margin-bottom: 30px;
+}
+
+.formWrapper {
+  background-color: var(--primaryShadow);
+  padding: 10px 24px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px var(--primaryDark);
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+}
+
+.logo {
+  display: block;
+  margin: 0 auto;
+  width: 120px;
+  height: auto;
+  border-radius: 10px;
+
+}
+
+.title {
+  color: var(--secundary);
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.input {
+  width: 100%;
+  padding: 14px 12px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  border: 2px solid var(--accentSeccundary);
+  font-size: 16px;
+  color: var(--secundary);
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.input:focus {
+  border-color: var(--primary);
+  outline: none;
+  background-color: var(--background);
+}
+
+.forgotPassword {
+  text-align: right;
+  color: var(--accentSeccundary);
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: -12px;
+  margin-bottom: 28px;
+  user-select: none;
+}
+
+.button {
+  width: 100%;
+  padding: 14px;
+  background-color: var(--primary);
+  color: var(--black);
+  font-weight: 700;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+  user-select: none;
+}
+
+.button:hover:not(:disabled) {
+  background-color: var(--primaryDark);
+}
+
+.button:disabled {
+  background-color: var(--gray);
+  cursor: not-allowed;
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  margin: 36px 0 24px;
+  color: var(--gray);
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.separatorLine {
+  flex-grow: 1;
+  height: 1.5px;
+  background-color: var(--gray);
+  margin: 0 12px;
+}
+
+.signupWrapper {
+  text-align: center;
+  font-size: 16px;
+  color: var(--secundary);
+}
+
+.signupLink {
+  color: var(--accentSeccundary);
+  font-weight: 600;
+  margin-left: 8px;
+  cursor: pointer;
+  user-select: none;
+}

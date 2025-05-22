@@ -27,7 +27,15 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to see the r
 The main page file is located at:
 
 ```bash
-app/page.tsx
+/lib/
+  └── supabaseClient.ts      # uso no cliente/browser
+
+/middleware.ts               # proteção de rotas privadas
+
+/app/
+  └── layout.tsx             # session provider
+  └── login/page.tsx         # login page
+  └── dashboard/page.tsx     # página protegida
 ```
 
 Changes are automatically applied as you edit.

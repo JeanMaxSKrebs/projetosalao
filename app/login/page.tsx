@@ -2,38 +2,98 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { supabase } from '@/lib/supabaseClient';
+import { COLORS } from '@/assets/colors';
+import styles from './LoginPage.module.css';
+import Image from 'next/image';
 
 export default function LoginPage() {
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Aqui você validaria via API
-    if (email === 'admin@salon.com' && senha === '123456') {
-      router.push('/dashboard');
+    if (!email || !senha) {
+      alert('Por favor, preencha email e senha.');
+      return;
+    }
+
+    setLoading(true);
+
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email,
+      password: senha,
+    });
+
+    setLoading(false);
+
+    if (error) {
+      switch (error.message) {
+        case 'Invalid login credentials':
+          alert('Email ou senha inválidos.');
+          break;
+        default:
+          alert('Erro ao fazer login: ' + error.message);
+      }
     } else {
-      alert('Email ou senha inválidos');
+      localStorage.setItem('user_session', JSON.stringify(data.session));
+      router.push('/dashboard');
     }
   };
 
+  // estilizar variáveis CSS dinâmicas
+  const cssVars = {
+    '--primary': COLORS.primary,
+    '--primaryShadow': COLORS.primaryShadow,
+    '--secundary': COLORS.secundary,
+    '--terciary': COLORS.terciary,
+    '--background': COLORS.background,
+    '--primaryDark': COLORS.primaryDark,
+    '--accentSeccundary': COLORS.accentSeccundary,
+    '--gray': COLORS.gray,
+    '--black': COLORS.black,
+  } as React.CSSProperties;
+
+  // Funções de navegação para as outras páginas
+  const goToForgotPassword = () => router.push('/forgot-password');
+  const goToSignup = () => router.push('/signup');
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <form
-        onSubmit={handleLogin}
-        className="bg-white p-8 rounded shadow-md w-full max-w-sm"
-      >
-        <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
+    <div className={styles.container} style={cssVars}>
+      <div className={styles.containerLogo}>
+        <Image
+          src="/images/logo.png"
+          alt="Logo do app"
+          width={120}
+          height={120}
+          className={styles.logo}
+          priority
+        />
+      </div>
+
+      <form onSubmit={handleLogin} className={styles.formWrapper}>
+        <div className={styles.separator}>
+          <div className={styles.separatorLine}></div>
+          <div className={styles.separatorLine}></div>
+        </div>
+        <h2 className={styles.title}>Login</h2>
+        <div className={styles.separator}>
+          <div className={styles.separatorLine}></div>
+          <div className={styles.separatorLine}></div>
+        </div>
+
 
         <input
           type="email"
           placeholder="E-mail"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full mb-4 p-2 border rounded"
+          className={styles.input}
           required
+          disabled={loading}
         />
 
         <input
@@ -41,16 +101,51 @@ export default function LoginPage() {
           placeholder="Senha"
           value={senha}
           onChange={(e) => setSenha(e.target.value)}
-          className="w-full mb-6 p-2 border rounded"
+          className={styles.input}
           required
+          disabled={loading}
         />
+
+        <div
+          className={styles.forgotPassword}
+          onClick={goToForgotPassword}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') goToForgotPassword();
+          }}
+        >
+          Esqueceu sua senha?
+        </div>
 
         <button
           type="submit"
-          className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
+          className={styles.button}
+          disabled={loading}
         >
-          Entrar
+          {loading ? 'Entrando...' : 'Entrar'}
         </button>
+
+        <div className={styles.separator}>
+          <div className={styles.separatorLine}></div>
+          OU
+          <div className={styles.separatorLine}></div>
+        </div>
+
+        <div className={styles.signupWrapper}>
+          Não tem uma conta?
+          <span
+            className={styles.signupLink}
+            onClick={goToSignup}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') goToSignup();
+            }}
+          >
+            Cadastre-se
+          </span>
+        </div>
       </form>
     </div>
   );
